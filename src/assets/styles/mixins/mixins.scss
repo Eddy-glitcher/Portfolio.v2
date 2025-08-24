@@ -1,0 +1,10 @@
+@mixin displayFlex($justify, $direction) {
+    display: flex;
+    justify-content: $justify;
+    flex-direction: $direction;
+    place-items: center;
+}
+
+@mixin blurBackground{
+    
+}
