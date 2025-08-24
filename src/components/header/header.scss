@@ -1,5 +1,8 @@
+@use '@/assets/styles/mixins/mixins.scss' as *;
+
 .header{
-    position: relative;
+    position: fixed;
+    top: 0;
     padding: 24px;
     width: 100%;
     color: var(--primary-text-color);
@@ -9,29 +12,23 @@
     }
 
     .header__nav{
-        display: flex;
-        justify-content: space-between;
-        place-items: center;
+        @include displayFlex(space-between, row);
+        flex-wrap: wrap;
+
+        .header__toggle{
+            order: 2;
+        }
     }
     
     .header__menu{
-        // ! VERIFICAR EFECTO GLASS...
-        position: absolute;
-        top: 100%;
-        left: 0;
+        display: none;
+        order: 3;
         width: 100%;
         padding: 10px 20px;
-        display: flex;
-        place-items: center;
-        flex-direction: column;
-        border-radius: 20px;
+        margin-top: 10px;
         text-align: left;
-        background: rgba(30, 30, 30, 0.5);
-        backdrop-filter: blur(7px);
-        -webkit-backdrop-filter: blur(7px);
-        opacity: 0;
-        visibility: hidden;
-        
+        border-radius: 20px;
+
         Button{
             padding: 20px 5px;
             width: 100%;
@@ -53,9 +50,7 @@
     }
 
     .header__menu--show{
-        visibility: visible;
-        opacity: 1;
-        transition: visibility, opacity 100ms ease-in;
+        display: block; 
     }
 
     .header__svg{
@@ -65,7 +60,11 @@
     }
 }
 
-// Responsive
+.header--blur-efect{
+    background-color: var(--primary-background-alter);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
 
 @media (min-width: 770px) {
     .header{
@@ -80,14 +79,12 @@
         }
         
         .header__menu{
-            position: static;
-            padding: 0px;
             width: auto;
-            flex-direction: row;
+            @include displayFlex(center, row);
             gap: 20px;
+            padding: 0px;
+            order: 2;
             background-color: transparent;
-            opacity: 1;
-            visibility: visible;
 
             Button{
                 padding: 10px 5px;

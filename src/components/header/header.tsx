@@ -1,7 +1,7 @@
 import '@/App.css';
 import './header.scss';
 import Button from '@/components/ui/button/button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Header() {
 
@@ -12,14 +12,28 @@ const navItems = [
   { label: "Contacto", id: "contact" }
 ];
 
+const [scrollPosition, setScrollPosition] = useState(0);
+
+useEffect(()=>{
+  const handleScroll = ()=>{
+    setScrollPosition(window.scrollY);
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  return ()=>{
+    window.removeEventListener('scroll', handleScroll);
+  }
+}, []);
+
 const [showMenuList, setShowMenuList]= useState(false);
 
   return (
     <>
-        <header className='header'>
+        <header className={`header ${scrollPosition > 50 ? 'header--blur-efect' : ''}`}>
             <nav className='header__nav'>
               <Button variant='ghost'>EA</Button>
-                <ul className={`header__menu ${showMenuList ? 'header__menu--show' : ''}`}>
+                <ul className={`header__menu ${showMenuList ? 'header__menu--show header--blur-efect' : ''}`}>
                 {
                   navItems.map((item)=> 
                     <li key={item.id} className='header__item'>
