@@ -1,0 +1,153 @@
+@use '@/assets/styles/mixins/mixins.scss' as *;
+
+.home{
+    padding: 40px 20px;
+    width: 100%;
+    height: 100dvh;
+    @include displayFlex(center, column);
+    background: var(--gradient-hero), url("/images/hero-image.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .home__center{
+        @include displayFlex(center, column);
+        margin: auto;
+    }
+
+    .home__desc{
+        text-align: center;
+        max-width: 650px;
+
+        h1{
+            margin: 10px 0px;
+            font-size: 3rem;
+            background: transparent;
+
+            span{
+                background: var(--gradient-primary);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        h3{
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 200;
+            color: var(--secondary-text-color);
+        }
+
+        h4{
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        p{
+            margin: 40px 0px;
+            font-size: 1.2rem;
+            color: var(--secondary-text-color);
+        }
+    }
+
+    .home__btns{
+        @include displayFlex(center, column);
+        gap: 20px;
+
+        Button:nth-child(1){
+            font-weight: 800;
+        }
+
+        Button{
+            padding: 15px 40px;
+        }
+    }
+
+    .home__social{
+        margin-top: 40px;
+        @include displayFlex(center, row);
+        gap: 15px;
+
+        svg{
+            width: 24px;
+            height: 24px;
+            color: var(--secondary-text-color);
+        }
+
+        .home__social-github:hover, .home__social-message:hover{
+            Button{
+                box-shadow: 0px 0px 10px var(--primary) inset;
+            }
+
+            svg{
+                color: var(--primary);
+            }
+        }
+
+        .home__social-linkedin:hover{
+            Button{
+                box-shadow: 0px 0px 10px var(--accent) inset;
+            }
+
+            svg{
+                color: var(--accent);
+            }
+        }
+    }
+
+    .home__arrow{
+        text-align: center;
+
+        svg{
+            width: 40px;
+            height: 30px;
+            opacity: 0.2;
+            color: var(--secondary-text-color);
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%{
+                transform: translateY(0);
+            }
+            60%{
+                transform: translateY(-8px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+    }
+}
+
+@media (min-width: 650px) {
+.home{
+    .home__desc{
+        h1{
+            font-size: 4rem;
+        }
+
+        h3{
+            font-size: 1.6rem;
+        }
+
+        h4{
+            font-size: 1.3rem;
+        }
+
+        p{
+            font-size: 1.4rem;
+        }
+    }
+
+    .home__btns{
+        margin: 20px 0px;
+        flex-direction: row;
+        gap: 30px;
+
+        Button{
+            padding: 10px 40px;
+        }
+    }
+}
+}
