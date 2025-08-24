@@ -3,7 +3,7 @@ import styles from "./button.module.scss";
 
 type ButtonProps = {
   children: React.ReactNode;
-  variant?: "primary" | "ghost" | "link" | "toggle"; // las variantes
+  variant?: "primary" | "secondary" | "ghost" | "link" | "toggle" | "social";
   onClick?: () => void;
 };
 
