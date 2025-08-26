@@ -8,6 +8,7 @@ html, body{
     font-family: inter, sans-serif;
     background-color: rgb(21, 21, 21);
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 ul{
