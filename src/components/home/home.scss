@@ -54,11 +54,11 @@
         @include displayFlex(center, column);
         gap: 20px;
 
-        Button:nth-child(1){
+        a:nth-child(1){
             font-weight: 800;
         }
 
-        Button{
+        a{
             padding: 15px 40px;
         }
     }
@@ -74,8 +74,17 @@
             color: var(--secondary-text-color);
         }
 
-        .home__social-github:hover, .home__social-message:hover{
-            Button{
+        .home__social-item{
+            text-align: center;
+
+            a{
+                @include displayFlex(center, row);
+            }
+
+        }
+
+        .home__social-item--github:hover, .home__social-item--message:hover{
+            a{
                 box-shadow: 0px 0px 10px var(--primary) inset;
             }
 
@@ -84,8 +93,8 @@
             }
         }
 
-        .home__social-linkedin:hover{
-            Button{
+        .home__social-item--linkedin:hover{
+            a{
                 box-shadow: 0px 0px 10px var(--accent) inset;
             }
 
@@ -145,7 +154,7 @@
         flex-direction: row;
         gap: 30px;
 
-        Button{
+        a{
             padding: 10px 40px;
         }
     }

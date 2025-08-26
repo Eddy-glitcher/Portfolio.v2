@@ -7,16 +7,28 @@
     width: 100%;
     color: var(--primary-text-color);
 
-    Button{
-        width: min-content;
-    }
-
     .header__nav{
         @include displayFlex(space-between, row);
         flex-wrap: wrap;
 
         .header__toggle{
             order: 2;
+            border-radius: 5px;
+            background-color: transparent;
+            outline: solid 2px transparent;
+            border: none;
+
+            &:focus{
+                outline: 2px solid var(--primary);
+            } 
+            
+            &:active{
+                background-color: var(--accent);
+            }
+            
+            svg{
+                fill: var(--primary-text-color);
+            }
         }
     }
     
@@ -29,23 +41,17 @@
         text-align: left;
         border-radius: 20px;
 
-        Button{
-            padding: 20px 5px;
-            width: 100%;
-            text-align: left;
+        a{
+            padding: 20px 0px;
         }
 
         .header__item{
-            padding: 5px 0px;
             width: 100%;
+            margin-bottom: 5px;
         }
 
-        .header__item-contact{
-            width: 100%;
-
-            Button{
-                text-align: center;
-            }
+        .header__item--contact{
+            text-align: center;
         }
     }
 
@@ -68,11 +74,14 @@
 
 @media (min-width: 770px) {
     .header{
-        Button{
-            width: min-content;
-        }
+        padding: 18px;
 
         .header__nav{
+            .header--blur-efect{
+                background-color: transparent;
+                backdrop-filter: none;
+            }
+
             .header__toggle{
                 display: none;
             }
@@ -81,17 +90,14 @@
         .header__menu{
             width: auto;
             @include displayFlex(center, row);
+            place-items: center;
             gap: 20px;
             padding: 0px;
             order: 2;
             background-color: transparent;
 
-            Button{
-                padding: 10px 5px;
-            }
-
-            .header__item{
-                padding: 0px 0px;
+            a{
+                padding: 5px;
             }
         }
     }
