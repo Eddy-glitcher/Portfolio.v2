@@ -1,0 +1,8 @@
+:root{
+  --font-size-100: 1rem;   /* base */
+  --font-size-200: 1.25rem; /* ~20px */
+  --font-size-300: 1.5rem;  /* ~24px */
+  --font-size-400: 2rem;    /* ~32px */
+  --font-size-500: 3rem;    /* ~48px */
+  --font-size-600: 4rem;    /* ~64px */
+}
