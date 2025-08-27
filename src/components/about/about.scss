@@ -1,0 +1,136 @@
+@use '@/assets/styles/mixins/mixins.scss' as *;
+
+.about{
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--primary-background-darker);
+    @include displayFlex(center, column);
+
+
+    .about__desc{
+        max-width: 500px;
+
+        h2{
+            color: var(--primary-text-color);
+            font-size: var(--font-size-400);
+        }
+
+        span{
+            @include textGradient();
+        }
+
+        p{
+            margin: 20px 0px;
+            font-size: var(--font-size-100);
+            line-height: 1.5rem;
+            color: var(--secondary-text-color);
+        }
+    }
+
+    .about__skills{
+        margin-top: 40px;
+
+        h3{
+            font-size: var(--font-size-400);
+            color: var(--primary-text-color);
+        }
+
+        .about__list{
+            max-width: 600px;
+            @include displayFlex(center, row);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .about__list-item{
+            padding: 10px;
+            margin: 30px 0px;
+            font-size: var(--font-size-100);
+            text-align: center;
+            color: var(--secondary-text-color);
+
+            svg{
+                display: block;
+                margin: 0px auto;
+                width: 50px;
+                height: 50px;
+                fill: transparent;
+                stroke-width: 10px;
+            }
+        }
+
+        .about__list-item--angular svg{
+            stroke: #B52E31;
+        }
+        .about__list-item--react svg{
+            stroke: #61DBFB;
+        }
+        .about__list-item--astro svg{
+            stroke: #ffffff;
+            stroke-width: 2px;
+        }
+        .about__list-item--html svg{
+            stroke: #e34c26;
+            stroke-width: 1px;
+        }
+        .about__list-item--css svg{
+            stroke: #264de4;
+        }
+        .about__list-item--sass svg{
+            stroke: #F891C6;
+        }
+        .about__list-item--javascript svg{
+            stroke: #F0DB4F;
+        }
+        .about__list-item--typescript svg{
+            stroke: #007acc;
+            stroke-width: 1px;
+        }
+        .about__list-item--nestjs svg{
+            stroke: #DF234F;
+            stroke-width: 2px;
+        }
+        .about__list-item--mongodb svg{
+            stroke: #439934;
+            stroke-width: 2px;
+        }
+        .about__list-item--docker svg{
+            stroke: #0db7ed;
+        }
+        .about__list-item--bootstrap svg{
+            stroke: #563d7c;
+        }
+        .about__list-item--figma svg{
+            stroke: #f24e1e;
+        }
+        .about__list-item--nodejs svg{
+            stroke: #3c873a;
+        }
+    }
+}
+
+@media (min-width: 700px){
+    .about{
+        .about__desc{
+            max-width: 600px;
+
+            h2{
+                font-size: var(--font-size-500);
+            }
+
+            p{
+                font-size: var(--font-size-300);
+                line-height: 1.8rem;
+            }
+        }
+
+        .about__skills{
+            .about__list-item{
+                svg{
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+}
