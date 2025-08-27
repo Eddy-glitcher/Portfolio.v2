@@ -26,7 +26,7 @@ useEffect(()=>{
   }
 }, []);
 
-const [showMenuList, setShowMenuList]= useState(true);
+const [showMenuList, setShowMenuList]= useState(false);
 
   return (
     <>
