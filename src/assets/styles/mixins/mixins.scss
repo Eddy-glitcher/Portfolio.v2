@@ -5,6 +5,8 @@
     place-items: center;
 }
 
-@mixin blurBackground{
-    
+@mixin textGradient{
+    background: var(--gradient-primary); /*Crear Variable*/
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
