@@ -1,9 +1,11 @@
+@use '@/assets/styles/mixins/mixins.scss' as *;
+
 /* Anchor.module.scss */
 a {
   display: block;
   width: 100%;
   height: 100%;
-  font-size: 1rem;
+  font-size: var(--font-size-100);
   text-decoration: none;
   border-radius: 5px;
   color: var(--primary-text-color);
@@ -44,15 +46,13 @@ a {
 }
 
 .ghost {
-  font-size: 2rem;
+  font-size: var(--font-size-400);
   font-weight: 600;
   padding: 0px;
   width: min-content;
 
   span{
-    background: var(--gradient-primary);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include textGradient() ;
   }
 
   &:hover {

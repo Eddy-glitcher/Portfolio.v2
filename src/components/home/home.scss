@@ -1,7 +1,7 @@
 @use '@/assets/styles/mixins/mixins.scss' as *;
 
 .home{
-    padding: 40px 20px;
+    padding: 60px 20px;
     width: 100%;
     height: 100dvh;
     @include displayFlex(center, column);
@@ -21,31 +21,30 @@
 
         h1{
             margin: 10px 0px;
-            font-size: 3rem;
+            font-size: var(--font-size-400);
             background: transparent;
 
             span{
-                background: var(--gradient-primary);
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
+                @include textGradient();
             }
         }
 
         h3{
-            font-size: 1.5rem;
+            font-size: var(--font-size-200);
             font-style: italic;
             font-weight: 200;
             color: var(--secondary-text-color);
         }
 
         h4{
-            font-size: 1.2rem;
+            font-size: var(--font-size-100);
             color: var(--accent);
         }
 
         p{
             margin: 40px 0px;
-            font-size: 1.2rem;
+            font-size: var(--font-size-100);
+            line-height: 1.5rem;
             color: var(--secondary-text-color);
         }
     }
@@ -59,7 +58,7 @@
         }
 
         a{
-            padding: 15px 40px;
+            padding: 10px 30px;
         }
     }
 
@@ -129,23 +128,24 @@
     }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 700px) {
 .home{
     .home__desc{
         h1{
-            font-size: 4rem;
+            font-size: var(--font-size-600);
         }
 
         h3{
-            font-size: 1.6rem;
+            font-size: var(--font-size-300);
         }
 
         h4{
-            font-size: 1.3rem;
+            font-size: var(--font-size-200);
         }
 
         p{
-            font-size: 1.4rem;
+            font-size: var(--font-size-300);
+            line-height: 2rem;
         }
     }
 
