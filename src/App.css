@@ -12,8 +12,12 @@
 
     /* Borders */
     --primary-border: #793BED1A;
+    --secondary-border: #793bed72;
+    --tertiary-border: #8f96a338;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
     --gradient-hero: linear-gradient(to bottom right, color-mix(in hsl, var(--primary) 30%, transparent), hsla(0, 0%, 0%, 0.796), color-mix(in hsl, var(--accent) 35%, transparent));
+    --gradient-card: linear-gradient(to bottom, #b76aff 0%, #8b44ff 50%, #5c87e4 100% 
+);
 }

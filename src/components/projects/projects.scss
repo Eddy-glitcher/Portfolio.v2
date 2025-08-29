@@ -1,0 +1,177 @@
+@use '@/assets/styles/mixins/mixins.scss' as *;
+
+.projects{
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--primary-background-darker);
+
+    .projects__desc{
+        max-width: 500px;
+        margin: 0px auto;
+
+        h2{
+            color: var(--primary-text-color);
+            font-size: var(--font-size-400);
+        }
+
+        span{
+            @include textGradient();
+        }
+
+        p{
+            margin: 20px 0px;
+            font-size: var(--font-size-100);
+            line-height: 1.5rem;
+            color: var(--secondary-text-color);
+        }
+    }
+
+    .project__cards{
+        @include displayFlex(center, row);
+    }
+
+    .project__card{
+        max-width: 400px;
+        text-align: left;
+        border-radius: 20px;
+        border: solid 1px var(--primary-border);
+        overflow: hidden;
+        transition: border-color, 200ms ease-in-out;
+        
+        picture{
+            padding: 40px 20px;
+            width: 100%;
+            height: 100%;
+            @include displayFlex(center, row);
+            overflow: hidden;
+            background: var(--gradient-card);
+
+            img{
+                width: 90%;
+                height: 80%;
+                border-radius: 10px;
+                box-shadow:
+                    0 20px 30px -10px rgba(0,0,0,0.4),
+                    0 40px 60px -20px rgba(0,0,0,0.3);
+                transition: transform 300ms ease-in-out;
+            }
+
+        }
+
+        .project__card-body{
+            padding: 20px;
+        }
+
+        h3{
+            color: var(--primary-text-color);
+            font-size: var(--font-size-300);
+            transition: color 200ms ease-in-out;
+        }
+
+        p{
+            margin: 20px 0px;
+            font-size: var(--font-size-100);
+            color: var(--secondary-text-color);
+            line-height: 1.5rem;
+        }
+
+        ul{
+            @include displayFlex(flex-start, row);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        li{
+            padding: 2px 8px;
+            font-size: calc(var(--font-size-100) - 2px);
+            color: var(--primary-text-color);
+            border: solid 1px var(--tertiary-border);
+            border-radius: 20px;
+
+            &:hover{
+                border-color: var(--secondary-border);
+            }
+        }
+
+        &:hover{
+            border-color: var(--secondary-border);
+
+            h3{
+                color: var(--primary);
+            }
+
+            picture{
+                
+                img{
+                    transform: scale(1.1);
+                }
+
+            }
+        }
+
+        .project__card-btns{
+            margin-top: 30px;
+            gap: 15px;
+            @include displayFlex(center, column);
+
+            span{
+                @include displayFlex(center, row);
+                gap: 5px;
+                text-align: center;
+            }
+    
+            svg{
+                width: 20px;
+                height: 20px;
+                stroke-width: 1px;
+                stroke: var(--primary-text-color);
+            }
+        }
+
+    }
+}
+
+@media (min-width: 750px){
+    .projects{
+
+        .projects__desc{
+            max-width: 600px;
+
+            h2{
+                font-size: var(--font-size-500);
+            }
+
+            p{
+                font-size: var(--font-size-300);
+                line-height: 1.8rem;
+            }
+        }
+
+        .project__cards{
+            margin-top: 60px;
+            @include displayFlex(center, column);
+        }
+
+        .project__card{
+            max-width: 900px;
+            height: 400px;
+            @include displayFlex(center, row);
+            align-items: stretch;
+            
+            picture{
+                order: 2;
+                flex: 1;
+                
+                img{
+                    display: block;
+                    object-fit: cover; 
+                }
+            }
+
+            .project__card-body{
+                order: 1;
+                flex: 1;
+            }
+        }
+    }
+}
