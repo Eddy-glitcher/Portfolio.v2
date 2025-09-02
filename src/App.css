@@ -9,11 +9,12 @@
     /* Backgounds */
     --primary-background : rgba(0, 0, 0, 0.411);
     --primary-background-darker : #0D0F12;
+    --secondary-background : #1A1D2380;
 
     /* Borders */
     --primary-border: #793BED1A;
     --secondary-border: #793bed72;
-    --tertiary-border: #8f96a338;
+    --tertiary-border: #8f96a30f;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));

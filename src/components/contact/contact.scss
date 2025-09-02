@@ -1,0 +1,250 @@
+@use '@/assets/styles/mixins/mixins.scss' as *;
+
+.contact{
+    padding: 60px 20px;
+    @include displayFlex(center, column);
+    background-color: var(--primary-background-darker);
+
+    .contact__desc{
+        text-align: center;
+        max-width: 500px;
+
+        h2{
+            color: var(--primary-text-color);
+            font-size: var(--font-size-400);
+
+            span{
+                @include textGradient();
+            }
+        }
+
+        p{
+            margin: 20px 0px;
+            color: var(--secondary-text-color);
+            font-size: var(--font-size-100);
+            line-height: 1.5rem;
+        }
+    }
+
+    .contact__media{
+        max-width: 1200px;
+        margin-top: 40px;
+        @include displayFlex(center, column);
+        color: var(--primary-text-color);
+        align-items: stretch;
+        gap: 30px;
+        
+        h2{
+            font-size: var(--font-size-300);
+        }
+        
+        
+        form{
+            width: 100%;
+            padding: 30px;
+            @include displayFlex(center, column);
+            flex: 1;
+            border-radius: 10px;
+            border: solid 1px var(--tertiary-border);
+            place-items: flex-start;
+            gap: 30px;
+        }
+
+        label{
+            width: 100%;
+            @include displayFlex(center, column);
+            place-items: flex-start;
+            gap: 10px;
+            font-size: calc(var(--font-size-100) - 2px);
+        }
+        
+        input, textarea{
+            width: 100%;
+            padding: 10px 12px;
+            color: var(--primary-text-color);
+            border-radius: 5px;
+            border: solid 1px var(--tertiary-border);
+            background-color: var(--secondary-background);
+            
+            &:focus{
+                outline-offset: 1px;
+                border: solid 1px var(--secondary-border);
+                outline: solid 1px var(--primary);
+            }
+            
+            &::placeholder{
+                color: var(--secondary-text-color);
+            }
+        }
+
+        textarea{
+            width: 100%;
+            min-height: 150px;
+            resize: none;
+        }
+
+        button{
+            padding: 10px 20px;
+            width: 100%;
+            color: var(--primary-text-color);
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            cursor: pointer;
+
+            span{
+                @include displayFlex(center, row);
+                gap: 10px;
+            }
+
+            svg{
+                width: 20px;
+                height: 20px;
+                stroke-width: 40px;
+            }
+        }
+
+        .contact__info{
+            @include displayFlex(flex-start, column);
+            flex: 1;
+            gap: 20px;
+
+            h3{
+                font-size: var(--font-size-300);
+            }
+
+            p{
+                color: var(--secondary-text-color);
+                line-height: 1.8;
+                margin: 20px 0px;
+            }
+        }
+
+        .contact__info-item{
+            width: 100%;
+            padding: 15px 10px;
+            @include displayFlex(flex-start, row);
+            gap: 10px;
+            border-radius: 10px;
+            border: solid 1px var(--tertiary-border);
+            transition: border 300ms ease-in-out;
+
+            &:hover{
+                border: solid 1px var(--primary);
+            }
+
+            .contact__info-social{
+                padding: 8px;
+                @include displayFlex(center, column);
+                border-radius: 100%;
+                box-shadow: 0px 0px 4px var(--primary) inset;
+            }
+
+            svg{
+                width: 20px;
+                height: 20px;
+                color: var(--primary);
+            }
+
+            h5{
+                color: var(--secondary-text-color);
+            }
+
+            a{
+                padding: 5px 0px;
+            }
+            
+        }
+
+        .contact__info-item--extra{
+            background-color: var(--primary-background-darker);
+
+            &:hover{
+                border-color: var(--tertiary-border);
+            }
+
+            .contact__info-status{
+                padding: 5px;
+                border-radius: 100%;
+                background-color: rgb(0, 178, 0);
+                animation: fade-color 4s linear infinite;
+            }
+
+            @keyframes fade-color {
+                0%{
+                    opacity: 1;
+                }
+                50%{
+                    opacity: 0.3;
+                }
+                100%{
+                    opacity: 1;
+                }
+            }
+
+            h5{
+                color: var(--primary-text-color);
+                font-size: var(--font-size-200);
+            }
+
+            p{
+                margin: 5px 0px;
+            }
+        }
+
+    }
+
+    .contact__alert{
+        width: 95%;
+        text-align: center;
+        position: fixed;
+        z-index: 11111111;
+        top: -100%;
+        padding: 30px 20px;
+        color: var(--primary-text-color);
+        border-radius: 10px;
+        border: solid 1px var(--secondary-border);
+        background-color: var(--primary-background-darker);
+        animation: fade-down;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fade-down {
+        from{
+            top: -100%;
+            opacity: 0;
+        }
+        to{
+            top: 20px;
+            opacity: 1;
+        }
+    }
+}
+
+@media (min-width: 800px){
+    .contact{
+        .contact__desc{
+            max-width: 700px;
+
+            h2{
+                font-size: var(--font-size-500);
+            }
+
+            p{
+                font-size: var(--font-size-300);
+                line-height: 1.4;
+            }
+        }
+
+        .contact__media{
+            @include displayFlex(center, row);
+            align-items: stretch;
+            
+            .contact__info{
+                justify-content: space-between;
+            }
+        }
+    }
+}
